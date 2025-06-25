@@ -10,7 +10,8 @@ export default function Home() {
     border: "none",
     borderRadius: "9px",
   };
-  redirect('/assignment-3')
+
+  
   return (
     <h1
       style={{
