@@ -5,7 +5,7 @@ import { AuthContext } from "../../context/AuthContext";
 
 const Login = () => {
   const { setLoggedIn, handleAuth } = useContext(AuthContext);
-  const myUserName = "Virat";
+  const myUserName = "Dhuruv";
   const myPassword = "123456";
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
