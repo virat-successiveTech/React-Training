@@ -2,7 +2,7 @@
 import React, { useContext } from "react";
 
 import { ThemeContext } from "@/context/ThemeContext";
-import { AuthContext } from "@/components/assignment-3/AuthContext";
+import { AuthContext } from "@/context/AuthContext";
 
 const Child = () => {
   const { loggedIn, userName, handleAuth, handleLogout } =

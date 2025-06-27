@@ -1,6 +1,6 @@
 "use client";
 import React, { useContext } from "react";
-import { AuthContext } from "./AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 
 const AuthComponent = () => {
   const { loggedIn, userName, handleAuth, handleLogout } =

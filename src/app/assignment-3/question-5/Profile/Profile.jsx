@@ -1,5 +1,5 @@
 "use client";
-import { AuthContext } from "@/components/assignment-3/AuthContext";
+import { AuthContext } from "@/context/AuthContext";
 import { redirect } from "next/navigation";
 import { useContext } from "react";
 

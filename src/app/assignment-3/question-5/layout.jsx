@@ -1,4 +1,4 @@
-import { AuthProvider } from "@/components/assignment-3/AuthContext";
+import { AuthProvider } from "@/context/AuthContext";
 import Link from "next/link";
 
 export default function DashboardLayout({ children }) {
