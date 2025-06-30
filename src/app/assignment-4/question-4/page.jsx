@@ -1,4 +1,4 @@
-import Password from "@/components/Password";
+import Password from "@/components/assignment-4/Password";
 
 const four = ()=>
 {

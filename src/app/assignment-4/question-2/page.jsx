@@ -1,4 +1,4 @@
-import Form from "@/components/Form";
+import Form from "@/components/assignment-4/Form";
 
 const two = ()=>
 {

@@ -1,4 +1,4 @@
-import Show from "@/components/Show";
+import Show from "@/components/assignment-4/Show";
 
 const three = ()=>
 {

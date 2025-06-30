@@ -1,149 +1,104 @@
-"use client";
-import Link from "next/link";
+'use client';
+
+import { useState } from 'react';
+import Link from 'next/link';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  Box,
+  CssBaseline,
+} from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+
+const drawerWidth = 240;
+
+const navItems = Array.from({ length: 14 }, (_, i) => ({
+  text: `Question ${i + 1}`,
+  href: `/assignment-4/question-${i + 1}`,
+}));
 
 export default function RootLayout({ children }) {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
+  const drawer = (
+    <List>
+      {navItems.map((item) => (
+        <Link key={item.text} href={item.href} passHref legacyBehavior>
+          <ListItem button component="a">
+            <ListItemText primary={item.text} />
+          </ListItem>
+        </Link>
+      ))}
+    </List>
+  );
+
   return (
-    <html lang="en">
-      <body
-        style={{
-          margin: 0,
-          padding: 0,
-          fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
-          backgroundColor: "#f9fafb",
+    <Box sx={{ display: 'flex' }}>
+      <CssBaseline />
+      <AppBar position="fixed">
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: 'none' } }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" noWrap>
+            Assignment 4
+          </Typography>
+        </Toolbar>
+      </AppBar>
+
+      {/* Permanent drawer for desktop */}
+      <Drawer
+        variant="permanent"
+        sx={{
+          display: { xs: 'none', sm: 'block' },
+          '& .MuiDrawer-paper': { width: drawerWidth },
+        }}
+        open
+      >
+        {drawer}
+      </Drawer>
+
+      {/* Temporary drawer for mobile */}
+      <Drawer
+        variant="temporary"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{ keepMounted: true }}
+        sx={{
+          display: { xs: 'block', sm: 'none' },
+          '& .MuiDrawer-paper': { width: drawerWidth },
         }}
       >
-        {/* Top Navigation Bar */}
-        <nav
-          style={{
-            display: "flex",
-            justifyContent: "flex-start",
-            alignItems: "center",
-            padding: "20px",
-            backgroundColor: "#ffffff",
-            boxShadow: "0 2px 6px rgba(0, 0, 0, 0.05)",
-            gap: "20px",
-          }}
-        >
-          <Link href="/assignment-4/question-1">
-            <button
-              style={{
-                padding: "10px 20px",
-                backgroundColor: "#0070f3",
-                color: "#fff",
-                border: "none",
-                borderRadius: "6px",
-                cursor: "pointer",
-                fontSize: "16px",
-                transition: "background-color 0.3s ease",
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = "#0059c1";
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = "#0070f3";
-              }}
-            >
-              Question 1
-            </button>
-          </Link>
+        {drawer}
+      </Drawer>
 
-          <Link href="/assignment-4/question-2">
-            <button
-              style={{
-                padding: "10px 20px",
-                backgroundColor: "#0070f3",
-                color: "#fff",
-                border: "none",
-                borderRadius: "6px",
-                cursor: "pointer",
-                fontSize: "16px",
-                transition: "background-color 0.3s ease",
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = "#0059c1";
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = "#0070f3";
-              }}
-            >
-              Question 2
-            </button>
-          </Link>
-
-          <Link href="/assignment-4/question-3">
-            <button
-              style={{
-                padding: "10px 20px",
-                backgroundColor: "#0070f3",
-                color: "#fff",
-                border: "none",
-                borderRadius: "6px",
-                cursor: "pointer",
-                fontSize: "16px",
-                transition: "background-color 0.3s ease",
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = "#0059c1";
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = "#0070f3";
-              }}
-            >
-              Question 3
-            </button>
-          </Link>
-    
-  <Link href="/assignment-4/question-4">
-            <button
-              style={{
-                padding: "10px 20px",
-                backgroundColor: "#0070f3",
-                color: "#fff",
-                border: "none",
-                borderRadius: "6px",
-                cursor: "pointer",
-                fontSize: "16px",
-                transition: "background-color 0.3s ease",
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = "#0059c1";
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = "#0070f3";
-              }}
-            >
-              Question 4
-            </button>
-          </Link>
-
-  <Link href="/assignment-4/question-5">
-            <button
-              style={{
-                padding: "10px 20px",
-                backgroundColor: "#0070f3",
-                color: "#fff",
-                border: "none",
-                borderRadius: "6px",
-                cursor: "pointer",
-                fontSize: "16px",
-                transition: "background-color 0.3s ease",
-              }}
-              onMouseOver={(e) => {
-                e.target.style.backgroundColor = "#0059c1";
-              }}
-              onMouseOut={(e) => {
-                e.target.style.backgroundColor = "#0070f3";
-              }}
-            >
-              Question 5
-            </button>
-          </Link>
-
-        </nav>
-
-        {/* Main content below navigation */}
-        <main style={{ padding: "20px" }}>{children}</main>
-      </body>
-    </html>
+      {/* Main content */}
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          mt: 8, // To push content below AppBar
+        }}
+      >
+        {children}
+      </Box>
+    </Box>
   );
 }

@@ -63,7 +63,7 @@ const Form = () => {
         Registration Form
       </h2>
 
-      {/* Name */}
+  
       <label style={{ display: "block", marginBottom: "15px" }}>
         Name:
         <input
@@ -82,7 +82,7 @@ const Form = () => {
         />
       </label>
 
-      {/* Email */}
+   
       <label style={{ display: "block", marginBottom: "15px" }}>
         Email:
         <input
@@ -101,7 +101,7 @@ const Form = () => {
         />
       </label>
 
-      {/* Password */}
+   
       <label style={{ display: "block", marginBottom: "15px" }}>
         Password:
         <input
@@ -120,7 +120,7 @@ const Form = () => {
         />
       </label>
 
-      {/* Gender Radio Buttons */}
+    
       <div style={{ marginBottom: "20px" }}>
         <span style={{ display: "block", marginBottom: "8px" }}>Gender:</span>
         <label style={{ marginRight: "15px" }}>
@@ -155,7 +155,7 @@ const Form = () => {
         </label>
       </div>
 
-      {/* Interests Checkboxes */}
+   
       <div style={{ marginBottom: "20px" }}>
         <strong style={{ display: "block", marginBottom: "8px" }}>
           Interests:
@@ -189,7 +189,7 @@ const Form = () => {
         </label>
       </div>
 
-      {/* Submit Button */}
+    
       <button
         type="submit"
         style={{

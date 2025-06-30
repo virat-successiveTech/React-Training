@@ -45,7 +45,7 @@ const Control = () => {
           <b style={{ color: "#0070f3" }}>{state}</b>
         </h1>
       </div>
-      console.log(state);
+     
     </div>
   );
 };
